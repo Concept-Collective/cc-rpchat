@@ -34,7 +34,7 @@ CC RP Chat is **still in development**, and it is not recommended for use in pro
 
 ### ✅ Features
 
-- ESX/QB support (TODO)
+- ESX, QBCore & vRP support (TODO)
 - Proximity Chat (TODO)
 - Free Forever
 
