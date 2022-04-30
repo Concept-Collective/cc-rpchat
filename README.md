@@ -10,7 +10,7 @@
 
 <div align="center">
 	<b>Preview image (TODO)</b>
-	<h1 align="center">💬 CC Chat - RP Chat</h1>
+	<h1 align="center">💬 CC RP Chat</h1>
 	<p align="center">
 	    CC RP Chat is A FiveM RP Chat resource utilising cc-chat's theme.
 	    <br/>
