@@ -57,7 +57,7 @@ Offical guide to installing **CC RP Chat**.
 
 --------
 ### License
-For an updated license, check the License file. That file will always overrule anything mentioned in the readme.md
+For an updated license, check the ``License`` file. That file will always overrule anything mentioned in the ``readme.md``
 
 cc-rpchat - Concept Collective
 
