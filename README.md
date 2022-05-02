@@ -39,7 +39,7 @@ CC RP Chat is **still in development**, and it is not recommended for use in pro
 - Free Forever
 
 ### 🛠 Installation
-Offical guide to installing **CC RP Chat**.
+Official guide to installing **CC RP Chat**.
 
 **Dependencies**
 - [CC Chat](https://github.com/Concept-Collective/cc-chat/releases/latest)
