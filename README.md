@@ -12,7 +12,7 @@
 	<b>Preview image</b>
 	
 	<h1 align="center">💬 CC RP Chat</h1>
-	<p align="center">![unknown](https://user-images.githubusercontent.com/36492979/204934986-26b9669c-3529-4b7f-a726-567ff85d97f4.png)
+	<p align="center">
 	    CC RP Chat is A FiveM RP Chat resource utilising cc-chat's theme.
 	    <br/>
 	    <b><a href='https://discord.conceptcollective.net'>Discord</a> - <a href="https://github.com/Concept-Collective/cc-rpchat/issues">Report Bug</a> - <a href="https://github.com/Concept-Collective/cc-rpchat/issues">Request Feature</a></b></h5>
