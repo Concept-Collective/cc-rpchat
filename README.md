@@ -9,8 +9,7 @@
 </h4>
 
 <div align="center">
-	<b>Preview image</b>
-	
+	<b>Preview image (Check CC-Chat)</b>
 	<h1 align="center">💬 CC RP Chat</h1>
 	<p align="center">
 	    CC RP Chat is A FiveM RP Chat resource utilising cc-chat's theme.
