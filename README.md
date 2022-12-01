@@ -37,6 +37,7 @@ CC RP Chat is **still in development**, and it is not recommended for use in pro
 - ESX, QBCore & vRP support (TODO)
 - Proximity Chat (TODO)
 - Free Forever
+- Discord Webhooks (Log Chat Messages to Discord)
 
 ### 🛠 Installation
 Official guide to installing **CC RP Chat**.
