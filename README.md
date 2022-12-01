@@ -9,7 +9,8 @@
 </h4>
 
 <div align="center">
-	<b>Preview image (TODO)</b>
+	<b>Preview image</b>
+	![image](https://user-images.githubusercontent.com/36492979/204934927-697b4e6d-dd3b-4423-92d3-99a8ff049c7f.png)
 	<h1 align="center">💬 CC RP Chat</h1>
 	<p align="center">
 	    CC RP Chat is A FiveM RP Chat resource utilising cc-chat's theme.
