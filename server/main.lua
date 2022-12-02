@@ -13,6 +13,25 @@ AddEventHandler('onResourceStart', function(resourceName)
             print('^1================^0')
         end
     end, 'GET', '')
+    if config.DefaultPrefix then
+        AddEventHandler('chatMessage', function(source, name, message)
+            local playerName
+            if config.identity then
+                playerName = xPlayer.getName()
+            else 
+                playerName = GetPlayerName(source)
+            end
+            if config.DefaultPrefix == 'ooc' then
+                TriggerClientEvent('cc-rpchat:addMessage', -1, '#3498db', 'fa-solid fa-globe', 'OOC | '..playerName, message)
+            elseif config.DefaultPrefix == 'me' then
+                TriggerClientEvent('cc-rpchat:addMessage', -1, '#f39c12', 'fa-solid fa-person', 'Me | '..playerName, message)
+            elseif config.DefaultPrefix == 'do' then
+                TriggerClientEvent('cc-rpchat:addMessage', -1, '#2ecc71', 'fa-solid fa-person-digging', 'Do | '..playerName, message)
+            elseif config.DefaultPrefix == 'twt' then
+                TriggerClientEvent('cc-rpchat:addMessage', -1, '#2980b9', 'fa-brands fa-twitter', '@'..playerName, message)
+            end
+        end)
+    end
 end)
 
 RegisterCommand('ooc', function(source, args, rawCommand)
