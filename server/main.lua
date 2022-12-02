@@ -30,6 +30,7 @@ AddEventHandler('onResourceStart', function(resourceName)
             elseif config.DefaultPrefix == 'twt' then
                 TriggerClientEvent('cc-rpchat:addMessage', -1, '#2980b9', 'fa-brands fa-twitter', '@'..playerName, message)
             end
+            CancelEvent()
         end)
     end
 end)
