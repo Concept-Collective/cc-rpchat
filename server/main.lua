@@ -1,3 +1,5 @@
+ESX = nil
+
 AddEventHandler('onResourceStart', function(resourceName)
     if (GetCurrentResourceName() ~= resourceName) then
         return
@@ -16,6 +18,7 @@ AddEventHandler('onResourceStart', function(resourceName)
     if config.DefaultPrefix then
         AddEventHandler('chatMessage', function(source, name, message)
             local playerName
+            local xPlayer = ESX.GetPlayerFromId(source)
             if config.identity then
                 playerName = xPlayer.getName()
             else 
@@ -33,10 +36,13 @@ AddEventHandler('onResourceStart', function(resourceName)
             CancelEvent()
         end)
     end
+    if config.identity then
+        ESX = exports["es_extended"]:getSharedObject()
+    end 
 end)
 
 RegisterCommand('ooc', function(source, args, rawCommand)
-    local xPlayer = source
+    local xPlayer = ESX.GetPlayerFromId(source)
     local playerName
     local msg = rawCommand:sub(5)
     if config.identity then
@@ -51,7 +57,7 @@ RegisterCommand('ooc', function(source, args, rawCommand)
 end, false)
 
 RegisterCommand('me', function(source, args, rawCommand)
-    local xPlayer = source
+    local xPlayer = ESX.GetPlayerFromId(source)
     local playerName
     local msg = rawCommand:sub(4)
     if config.identity then
@@ -66,7 +72,7 @@ RegisterCommand('me', function(source, args, rawCommand)
 end, false)
 
 RegisterCommand('do', function(source, args, rawCommand)
-    local xPlayer = source
+    local xPlayer = ESX.GetPlayerFromId(source)
     local playerName
     local msg = rawCommand:sub(4)
     if config.identity then
@@ -81,7 +87,7 @@ RegisterCommand('do', function(source, args, rawCommand)
 end, false)
 
 RegisterCommand('news', function(source, args, rawCommand)
-    local xPlayer = source
+    local xPlayer = ESX.GetPlayerFromId(source)
     local playerName
     local msg = rawCommand:sub(5)
     if config.identity then
@@ -96,7 +102,7 @@ RegisterCommand('news', function(source, args, rawCommand)
 end, false)
 
 RegisterCommand('ad', function(source, args, rawCommand)
-    local xPlayer = source
+    local xPlayer = ESX.GetPlayerFromId(source)
     local playerName
     local msg = rawCommand:sub(4)
     if config.identity then
@@ -111,7 +117,7 @@ RegisterCommand('ad', function(source, args, rawCommand)
 end, false)
 
 RegisterCommand('twt', function(source, args, rawCommand)
-    local xPlayer = source
+    local xPlayer = ESX.GetPlayerFromId(source)
     local playerName
     local msg = rawCommand:sub(5)
     if config.identity then
@@ -126,7 +132,7 @@ RegisterCommand('twt', function(source, args, rawCommand)
 end, false)
 
 RegisterCommand('anon', function(source, args, rawCommand)
-    local xPlayer = source
+    local xPlayer = ESX.GetPlayerFromId(source)
     local playerName
     local msg = rawCommand:sub(5)
     if config.identity then
