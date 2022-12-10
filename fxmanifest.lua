@@ -1,4 +1,4 @@
-version '1.2.0'
+version '1.2.1'
 author 'Concept Collective'
 description 'A FiveM RP Chat resource utilising cc-chat.'
 
