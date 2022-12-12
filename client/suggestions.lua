@@ -15,11 +15,11 @@ Citizen.CreateThread(function()
         { name="Message", help="News headline." }
     })
   
-    TriggerEvent('chat:addSuggestion', '/ad', 'send an advertisement message. (Global Chat)', {
+    TriggerEvent('chat:addSuggestion', '/ad', 'Send an advertisement message. (Global Chat)', {
       { name="Message", help="Product or service." }
     })
   
-    TriggerEvent('chat:addSuggestion', '/twt', 'send a Twitter message. (Global Chat)', {
+    TriggerEvent('chat:addSuggestion', '/twt', 'Send a Twitter message. (Global Chat)', {
       { name="Message", help="Twitter message." }
     })
   
