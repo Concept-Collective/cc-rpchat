@@ -169,6 +169,7 @@ if config.connectionMessages then
     end)
 end
 
+-- Discord webhook
 function sendToDiscord(color, name, message, footer)
     local embed = {
         {
