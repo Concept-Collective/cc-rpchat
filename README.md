@@ -36,8 +36,9 @@ CC RP Chat is **still in development**, and it is not recommended for use in pro
 
 - ESX support
 - Proximity Chat
+- Join/Leave messages
+- Discord Integration (webhooks)
 - Free Forever
-- Discord Webhooks (Log Chat Messages to Discord)
 
 ### 🛠 Installation
 Official guide to installing **CC RP Chat**.
