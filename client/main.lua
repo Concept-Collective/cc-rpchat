@@ -21,19 +21,3 @@ AddEventHandler('cc-rpchat:addProximityMessage', function(color, icon, subtitle,
     TriggerEvent('chat:addMessage', { templateId = 'ccChat', multiline = false, args = { color, icon, subtitle, timestamp, msg } })
   end
 end)
-
-AddEventHandler('chatMessage', function(author, color, text)
-    --[[local args = { text }
-    if author ~= "" then
-      table.insert(args, 1, author)
-    end
-    SendNUIMessage({
-      type = 'ON_MESSAGE',
-      message = {
-        color = color,
-        multiline = true,
-        args = args
-      }
-    })]]
-    print(author .. '\n' .. color .. '\n' .. text)
-end)
