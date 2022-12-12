@@ -1,29 +1,29 @@
 Citizen.CreateThread(function()
-    TriggerEvent('chat:addSuggestion', '/ooc', 'Out of character command', {
-      { name="Message", help="The message you would like to send to the chat" }
+    TriggerEvent('chat:addSuggestion', '/ooc', 'Out of character command. (Global Chat)', {
+      { name="Message", help="Out of character message." }
     })
 
-    TriggerEvent('chat:addSuggestion', '/me', 'Me command', {
-        { name="Message", help="The message you would like to send to the chat" }
+    TriggerEvent('chat:addSuggestion', '/me', 'Send a message in the third person. (Proximity Chat)', {
+        { name="Action", help="Action." }
     })
 
-    TriggerEvent('chat:addSuggestion', '/do', 'Do', {
-    { name="Message", help="What are you doing?" }
+    TriggerEvent('chat:addSuggestion', '/do', 'Send an action message. (Proximity Chat)', {
+    { name="Action", help="Action." }
     })
 
-    TriggerEvent('chat:addSuggestion', '/news', 'News command', {
-        { name="Message", help="The news you would like to share" }
+    TriggerEvent('chat:addSuggestion', '/news', 'Send a news headline. (Global Chat)', {
+        { name="Message", help="News headline." }
     })
   
-    TriggerEvent('chat:addSuggestion', '/ad', 'Advertisement command', {
-      { name="Message", help="The message you would like to send to the chat" }
+    TriggerEvent('chat:addSuggestion', '/ad', 'send an advertisement message. (Global Chat)', {
+      { name="Message", help="Product or service." }
     })
   
-    TriggerEvent('chat:addSuggestion', '/twt', 'Twitter command', {
-      { name="Message", help="The message you would like to send as a tweet" }
+    TriggerEvent('chat:addSuggestion', '/twt', 'send a Twitter message. (Global Chat)', {
+      { name="Message", help="Twitter message." }
     })
   
-    TriggerEvent('chat:addSuggestion', '/anon', 'Anonymous message', {
-      { name="Message", help="The message you would like to send Anonymously" }
+    TriggerEvent('chat:addSuggestion', '/anon', 'Send an anonymous message. (Global Chat)', {
+      { name="Message", help="Anonymous message." }
     })
 end)

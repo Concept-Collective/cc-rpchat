@@ -1,6 +1,18 @@
 ESX = nil
 
+Citizen.CreateThread(function()
+    SetConvar('chat_showJoins', '0')
+    SetConvar('chat_showQuits', '0')
+    if config.esx then
+        ESX = exports["es_extended"]:getSharedObject()
+        StopResource('esx_rpchat')
+    end
+end)
+
 AddEventHandler('onResourceStart', function(resourceName)
+    if resourceName == 'esx_rpchat' then
+        StopResource(resourceName)
+    end
     if (GetCurrentResourceName() ~= resourceName) then
         return
     end
@@ -15,36 +27,13 @@ AddEventHandler('onResourceStart', function(resourceName)
             print('^1================^0')
         end
     end, 'GET', '')
-    if config.DefaultPrefix then
-        AddEventHandler('chatMessage', function(source, name, message)
-            local playerName
-            if config.identity then
-                local xPlayer = ESX.GetPlayerFromId(source)
-                playerName = xPlayer.getName()
-            else 
-                playerName = GetPlayerName(source)
-            end
-            if config.DefaultPrefix == 'ooc' then
-                TriggerClientEvent('cc-rpchat:addMessage', -1, '#3498db', 'fa-solid fa-globe', 'OOC | '..playerName, message)
-            elseif config.DefaultPrefix == 'me' then
-                TriggerClientEvent('cc-rpchat:addMessage', -1, '#f39c12', 'fa-solid fa-person', 'Me | '..playerName, message)
-            elseif config.DefaultPrefix == 'do' then
-                TriggerClientEvent('cc-rpchat:addMessage', -1, '#2ecc71', 'fa-solid fa-person-digging', 'Do | '..playerName, message)
-            elseif config.DefaultPrefix == 'twt' then
-                TriggerClientEvent('cc-rpchat:addMessage', -1, '#2980b9', 'fa-brands fa-twitter', '@'..playerName, message)
-            end
-            CancelEvent()
-        end)
-    end
-    if config.identity then
-        ESX = exports["es_extended"]:getSharedObject()
-    end 
 end)
 
+-- OOC
 RegisterCommand('ooc', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(5)
-    if config.identity then
+    if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
     else 
@@ -56,10 +45,23 @@ RegisterCommand('ooc', function(source, args, rawCommand)
     TriggerClientEvent('cc-rpchat:addMessage', -1, '#3498db', 'fa-solid fa-globe', 'OOC | '..playerName, msg)
 end, false)
 
+AddEventHandler('chatMessage', function(source, name, message)
+    CancelEvent()
+    local playerName
+    if config.esx then
+        local xPlayer = ESX.GetPlayerFromId(source)
+        playerName = xPlayer.getName()
+    else 
+        playerName = GetPlayerName(source)
+    end
+    TriggerClientEvent('cc-rpchat:addMessage', -1, '#3498db', 'fa-solid fa-globe', 'OOC | '..playerName, message)
+end)
+
+-- Me
 RegisterCommand('me', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(4)
-    if config.identity then
+    if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
     else 
@@ -68,13 +70,15 @@ RegisterCommand('me', function(source, args, rawCommand)
     if config.DiscordWebhook then
         sendToDiscord(16753920, playerName.." has executed /"..rawCommand:sub(1, 2), '**Command arguments**: '..msg, "Identifiers: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n"..GetPlayerIdentifier(source, 2).."\n"..GetPlayerIdentifier(source, 3))
     end
-    TriggerClientEvent('cc-rpchat:addMessage', -1, '#f39c12', 'fa-solid fa-person', 'Me | '..playerName, msg)
+    TriggerClientEvent('cc-rpchat:addProximityMessage', -1, '#f39c12', 'fa-solid fa-person', 'Me | '..playerName, msg, source, GetEntityCoords(GetPlayerPed(source)))
+    --TriggerClientEvent('cc-rpchat:addMessage', -1, '#f39c12', 'fa-solid fa-person', 'Me | '..playerName, msg)
 end, false)
 
+-- Do
 RegisterCommand('do', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(4)
-    if config.identity then
+    if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
     else 
@@ -83,13 +87,14 @@ RegisterCommand('do', function(source, args, rawCommand)
     if config.DiscordWebhook then
         sendToDiscord(16753920, playerName.." has executed /"..rawCommand:sub(1, 2), '**Command arguments**: '..msg, "Identifiers: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n"..GetPlayerIdentifier(source, 2).."\n"..GetPlayerIdentifier(source, 3))
     end
-    TriggerClientEvent('cc-rpchat:addMessage', -1, '#2ecc71', 'fa-solid fa-person-digging', 'Do | '..playerName, msg)
+    TriggerClientEvent('cc-rpchat:addProximityMessage', -1, '#2ecc71', 'fa-solid fa-person-digging', 'Do | '..playerName, msg, source, GetEntityCoords(GetPlayerPed(source)))
 end, false)
 
+-- News
 RegisterCommand('news', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(5)
-    if config.identity then
+    if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
     else 
@@ -101,10 +106,11 @@ RegisterCommand('news', function(source, args, rawCommand)
     TriggerClientEvent('cc-rpchat:addMessage', -1, '#c0392b', 'fa-solid fa-newspaper', 'News | '..playerName, msg)
 end, false)
 
+-- Ad
 RegisterCommand('ad', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(4)
-    if config.identity then
+    if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
     else 
@@ -116,10 +122,11 @@ RegisterCommand('ad', function(source, args, rawCommand)
     TriggerClientEvent('cc-rpchat:addMessage', -1, '#f1c40f', 'fas fa-ad', 'Ad | '..playerName, msg)
 end, false)
 
+-- Tweet
 RegisterCommand('twt', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(5)
-    if config.identity then
+    if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
     else 
@@ -131,10 +138,11 @@ RegisterCommand('twt', function(source, args, rawCommand)
     TriggerClientEvent('cc-rpchat:addMessage', -1, '#2980b9', 'fa-brands fa-twitter', '@'..playerName, msg)
 end, false)
 
+-- Anon
 RegisterCommand('anon', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(5)
-    if config.identity then
+    if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
     else 
@@ -146,9 +154,20 @@ RegisterCommand('anon', function(source, args, rawCommand)
     TriggerClientEvent('cc-rpchat:addMessage', -1, '#2c3e50', 'fa-solid fa-mask', 'Anonymous | '.. source, msg)
 end, false)
 
-AddEventHandler('chatMessage', function(source, name, message)
-    CancelEvent()
-end)
+-- Player join and leave messages
+if config.connectionMessages then
+    AddEventHandler('playerJoining', function()
+        local playerName
+        playerName = GetPlayerName(source)
+        TriggerClientEvent('cc-rpchat:addMessage', -1, '#2ecc71', 'fa-solid fa-plus', playerName..' joined.', '', false)
+    end)
+
+    AddEventHandler('playerDropped', function(reason)
+        local playerName
+        playerName = GetPlayerName(source)
+        TriggerClientEvent('cc-rpchat:addMessage', -1, '#e74c3c', 'fa-solid fa-minus', playerName..' left (' .. reason .. ')', '', false)
+    end)
+end
 
 function sendToDiscord(color, name, message, footer)
     local embed = {
