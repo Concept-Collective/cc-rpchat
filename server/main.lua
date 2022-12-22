@@ -48,13 +48,17 @@ end, false)
 AddEventHandler('chatMessage', function(source, name, message)
     CancelEvent()
     local playerName
-    if config.esx then
-        local xPlayer = ESX.GetPlayerFromId(source)
-        playerName = xPlayer.getName()
-    else 
-        playerName = GetPlayerName(source)
+    if message:sub(1, 1) == '/' then
+        return
+    else
+        if config.esx then
+            local xPlayer = ESX.GetPlayerFromId(source)
+            playerName = xPlayer.getName()
+        else 
+            playerName = GetPlayerName(source)
+        end
+        TriggerClientEvent('cc-rpchat:addMessage', -1, '#3498db', 'fa-solid fa-globe', 'OOC | '..playerName, message) 
     end
-    TriggerClientEvent('cc-rpchat:addMessage', -1, '#3498db', 'fa-solid fa-globe', 'OOC | '..playerName, message)
 end)
 
 -- Me

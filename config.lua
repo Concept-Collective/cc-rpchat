@@ -4,4 +4,4 @@ config.esx = false                        -- If you are using esx this will enab
 
 config.connectionMessages = true         -- set this to true if you would like join and leave messages
 
-config.DiscordWebhook = ''
+config.DiscordWebhook = false -- Set to your Discord Webhook URL 
