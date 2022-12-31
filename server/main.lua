@@ -1,4 +1,5 @@
 ESX = nil
+QBCore = exports['qb-core']:GetCoreObject()
 
 Citizen.CreateThread(function()
     SetConvar('chat_showJoins', '0')
@@ -36,7 +37,10 @@ RegisterCommand('ooc', function(source, args, rawCommand)
     if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
-    else 
+    elseif config.qbcore then
+      local xPlayer = QBCore.Functions.GetPlayer(source)
+      playerName = xPlayer.PlayerData.charinfo.firstname .. "," .. xPlayer.PlayerData.charinfo.lastname 
+    else
         playerName = GetPlayerName(source)
     end
     if config.DiscordWebhook then
@@ -54,6 +58,9 @@ AddEventHandler('chatMessage', function(source, name, message)
         if config.esx then
             local xPlayer = ESX.GetPlayerFromId(source)
             playerName = xPlayer.getName()
+        elseif config.qbcore then
+        local xPlayer = QBCore.Functions.GetPlayer(source)
+        playerName = xPlayer.PlayerData.charinfo.firstname .. "," .. xPlayer.PlayerData.charinfo.lastname 
         else 
             playerName = GetPlayerName(source)
         end
@@ -68,6 +75,9 @@ RegisterCommand('me', function(source, args, rawCommand)
     if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
+     elseif config.qbcore then
+      local xPlayer = QBCore.Functions.GetPlayer(source)
+      playerName = xPlayer.PlayerData.charinfo.firstname .. "," .. xPlayer.PlayerData.charinfo.lastname 
     else 
         playerName = GetPlayerName(source)
     end
@@ -85,6 +95,9 @@ RegisterCommand('do', function(source, args, rawCommand)
     if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
+    elseif config.qbcore then
+      local xPlayer = QBCore.Functions.GetPlayer(source)
+      playerName = xPlayer.PlayerData.charinfo.firstname .. "," .. xPlayer.PlayerData.charinfo.lastname 
     else 
         playerName = GetPlayerName(source)
     end
@@ -101,6 +114,9 @@ RegisterCommand('news', function(source, args, rawCommand)
     if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
+    elseif config.qbcore then
+      local xPlayer = QBCore.Functions.GetPlayer(source)
+      playerName = xPlayer.PlayerData.charinfo.firstname .. "," .. xPlayer.PlayerData.charinfo.lastname 
     else 
         playerName = GetPlayerName(source)
     end
@@ -117,6 +133,9 @@ RegisterCommand('ad', function(source, args, rawCommand)
     if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
+    elseif config.qbcore then
+      local xPlayer = QBCore.Functions.GetPlayer(source)
+      playerName = xPlayer.PlayerData.charinfo.firstname .. "," .. xPlayer.PlayerData.charinfo.lastname 
     else 
         playerName = GetPlayerName(source)
     end
@@ -133,6 +152,9 @@ RegisterCommand('twt', function(source, args, rawCommand)
     if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
+    elseif config.qbcore then
+      local xPlayer = QBCore.Functions.GetPlayer(source)
+      playerName = xPlayer.PlayerData.charinfo.firstname .. "," .. xPlayer.PlayerData.charinfo.lastname 
     else 
         playerName = GetPlayerName(source)
     end
@@ -149,6 +171,9 @@ RegisterCommand('anon', function(source, args, rawCommand)
     if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
+    elseif config.qbcore then
+      local xPlayer = QBCore.Functions.GetPlayer(source)
+      playerName = xPlayer.PlayerData.charinfo.firstname .. "," .. xPlayer.PlayerData.charinfo.lastname 
     else 
         playerName = GetPlayerName(source)
     end
