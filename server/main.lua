@@ -1,3 +1,4 @@
+local ccChat = exports['cc-chat']
 ESX = nil
 QBCore = nil
 
@@ -36,6 +37,10 @@ end)
 RegisterCommand('ooc', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(5)
+    if ccChat:checkSpam(source, msg) and config.antiSpam == true then
+        TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
+        return
+    end
     if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
@@ -57,6 +62,10 @@ AddEventHandler('chatMessage', function(source, name, message)
     if message:sub(1, 1) == '/' then
         return
     else
+    if ccChat:checkSpam(source, message) and config.antiSpam == true then
+        TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
+        return
+    end
     if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
@@ -74,6 +83,10 @@ end)
 RegisterCommand('me', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(4)
+    if ccChat:checkSpam(source, msg) and config.antiSpam == true then
+        TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
+        return
+    end
     if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
@@ -94,6 +107,10 @@ end, false)
 RegisterCommand('do', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(4)
+    if ccChat:checkSpam(source, msg) and config.antiSpam == true then
+        TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
+        return
+    end
     if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
@@ -113,6 +130,10 @@ end, false)
 RegisterCommand('news', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(5)
+    if ccChat:checkSpam(source, msg) and config.antiSpam == true then
+        TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
+        return
+    end
     if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
@@ -132,6 +153,10 @@ end, false)
 RegisterCommand('ad', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(4)
+    if ccChat:checkSpam(source, msg) and config.antiSpam == true then
+        TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
+        return
+    end
     if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
@@ -151,6 +176,10 @@ end, false)
 RegisterCommand('twt', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(5)
+    if ccChat:checkSpam(source, msg) and config.antiSpam == true then
+        TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
+        return
+    end
     if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
@@ -170,6 +199,10 @@ end, false)
 RegisterCommand('anon', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(5)
+    if ccChat:checkSpam(source, msg) and config.antiSpam == true then
+        TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
+        return
+    end
     if config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
