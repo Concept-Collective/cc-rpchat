@@ -1,4 +1,5 @@
 local ccChat = exports['cc-chat']
+local emoji = require('emoji')
 ESX = nil
 QBCore = nil
 
@@ -37,6 +38,14 @@ end)
 RegisterCommand('ooc', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(5)
+    if config.emoji.ooc then
+        for _, em in ipairs(emoji) do
+            for _, code in ipairs(em[1]) do
+                local emojiCode = string.gsub(code, "([%^%$%(%)%%%.%[%]%*%+%-%?])", "%%%1") -- Escape special characters in the emoji code
+                msg = string.gsub(msg, emojiCode, em[2]) -- Replace the emoji code with the corresponding emoji character
+            end
+        end
+    end
     if ccChat:checkSpam(source, msg) and config.antiSpam == true then
         TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
         return
@@ -62,6 +71,14 @@ AddEventHandler('chatMessage', function(source, name, message)
     if message:sub(1, 1) == '/' then
         return
     else
+        if config.emoji.chatMessage then
+            for _, em in ipairs(emoji) do
+                for _, code in ipairs(em[1]) do
+                    local emojiCode = string.gsub(code, "([%^%$%(%)%%%.%[%]%*%+%-%?])", "%%%1") -- Escape special characters in the emoji code
+                    message = string.gsub(message, emojiCode, em[2]) -- Replace the emoji code with the corresponding emoji character
+                end
+            end
+        end
     if ccChat:checkSpam(source, message) and config.antiSpam == true then
         TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
         return
@@ -83,6 +100,14 @@ end)
 RegisterCommand('me', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(4)
+    if config.emoji.me then
+        for _, em in ipairs(emoji) do
+            for _, code in ipairs(em[1]) do
+                local emojiCode = string.gsub(code, "([%^%$%(%)%%%.%[%]%*%+%-%?])", "%%%1") -- Escape special characters in the emoji code
+                msg = string.gsub(msg, emojiCode, em[2]) -- Replace the emoji code with the corresponding emoji character
+            end
+        end
+    end
     if ccChat:checkSpam(source, msg) and config.antiSpam == true then
         TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
         return
@@ -107,6 +132,14 @@ end, false)
 RegisterCommand('do', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(4)
+    if config.emoji.doo then
+        for _, em in ipairs(emoji) do
+            for _, code in ipairs(em[1]) do
+                local emojiCode = string.gsub(code, "([%^%$%(%)%%%.%[%]%*%+%-%?])", "%%%1") -- Escape special characters in the emoji code
+                msg = string.gsub(msg, emojiCode, em[2]) -- Replace the emoji code with the corresponding emoji character
+            end
+        end
+    end
     if ccChat:checkSpam(source, msg) and config.antiSpam == true then
         TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
         return
@@ -130,6 +163,14 @@ end, false)
 RegisterCommand('news', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(5)
+    if config.emoji.news then
+        for _, em in ipairs(emoji) do
+            for _, code in ipairs(em[1]) do
+                local emojiCode = string.gsub(code, "([%^%$%(%)%%%.%[%]%*%+%-%?])", "%%%1") -- Escape special characters in the emoji code
+                msg = string.gsub(msg, emojiCode, em[2]) -- Replace the emoji code with the corresponding emoji character
+            end
+        end
+    end
     if ccChat:checkSpam(source, msg) and config.antiSpam == true then
         TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
         return
@@ -153,6 +194,14 @@ end, false)
 RegisterCommand('ad', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(4)
+    if config.emoji.ad then
+        for _, em in ipairs(emoji) do
+            for _, code in ipairs(em[1]) do
+                local emojiCode = string.gsub(code, "([%^%$%(%)%%%.%[%]%*%+%-%?])", "%%%1") -- Escape special characters in the emoji code
+                msg = string.gsub(msg, emojiCode, em[2]) -- Replace the emoji code with the corresponding emoji character
+            end
+        end
+    end
     if ccChat:checkSpam(source, msg) and config.antiSpam == true then
         TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
         return
@@ -176,6 +225,14 @@ end, false)
 RegisterCommand('twt', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(5)
+    if config.emoji.twt then
+        for _, em in ipairs(emoji) do
+            for _, code in ipairs(em[1]) do
+                local emojiCode = string.gsub(code, "([%^%$%(%)%%%.%[%]%*%+%-%?])", "%%%1") -- Escape special characters in the emoji code
+                msg = string.gsub(msg, emojiCode, em[2]) -- Replace the emoji code with the corresponding emoji character
+            end
+        end
+    end
     if ccChat:checkSpam(source, msg) and config.antiSpam == true then
         TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
         return
@@ -199,6 +256,14 @@ end, false)
 RegisterCommand('anon', function(source, args, rawCommand)
     local playerName
     local msg = rawCommand:sub(5)
+    if config.emoji.anon then
+        for _, em in ipairs(emoji) do
+            for _, code in ipairs(em[1]) do
+                local emojiCode = string.gsub(code, "([%^%$%(%)%%%.%[%]%*%+%-%?])", "%%%1") -- Escape special characters in the emoji code
+                msg = string.gsub(msg, emojiCode, em[2]) -- Replace the emoji code with the corresponding emoji character
+            end
+        end
+    end
     if ccChat:checkSpam(source, msg) and config.antiSpam == true then
         TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
         return
