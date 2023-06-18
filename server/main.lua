@@ -1,7 +1,8 @@
 local ccChat = exports['cc-chat']
-local emoji = require('emoji')
 ESX = nil
 QBCore = nil
+local emoji = import 'emoji'
+
 
 Citizen.CreateThread(function()
     SetConvar('chat_showJoins', '0')
