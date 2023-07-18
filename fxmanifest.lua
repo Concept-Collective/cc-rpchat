@@ -7,8 +7,11 @@ version '1.3.2'
 
 lua54 'yes'
 
-server_script 'server/main.lua'
+server_script 'server/*.lua'
 client_script 'client/*.lua'
-shared_script 'config.lua'
+shared_scripts {
+    --'@ox_lib/init.lua',
+    'config.lua',
+}
 
 dependency 'cc-chat'
