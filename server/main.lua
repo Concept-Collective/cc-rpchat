@@ -21,6 +21,11 @@ AddEventHandler('onResourceStart', function(resourceName)
         return
     end
     PerformHttpRequest('https://api.github.com/repos/Concept-Collective/cc-rpchat/releases/latest', function (err, data, headers)
+        if data == nil then
+            print('An error occurred while checking the version. Your firewall may be blocking access to "github.com". Please check your firewall settings and ensure that "github.com" is allowed to establish connections.')
+            return
+        end
+        
         local data = json.decode(data)
         if data.tag_name ~= 'v'..GetResourceMetadata(GetCurrentResourceName(), 'version', 0) then
             print('\n^1================^0')
