@@ -10,7 +10,7 @@ config.connectionMessages = true          -- set this to true if you would like 
 
 config.antiSpam = false                   -- set this to true if you would like to use the cc chat antispam system                      
 
-config.DiscordWebhook = true             -- Set to your Discord Webhook URL ***REQUIRES ccDiscordWrapper!***
+config.DiscordWebhook = false             -- Set to your true if you would like to log to Discord Webhook ***REQUIRES ccDiscordWrapper!***
 
 config.emoji = {
     chatMessage = true, -- enable emojis for text (ooc)
