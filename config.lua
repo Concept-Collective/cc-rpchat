@@ -4,11 +4,13 @@ config.esx = false                        -- Set this to true if using ESX (requ
 
 config.qbcore = false                     -- Set this to true if using QBCore
 
+config.discord = false                    -- Set this to true if using ccDiscordWrapper and want Role Names added as a prefix to the Players Name
+
 config.connectionMessages = true          -- set this to true if you would like join and leave messages
 
-config.antiSpam = false                    -- set this to true if you would like to use the cc chat antispam system                      
+config.antiSpam = false                   -- set this to true if you would like to use the cc chat antispam system                      
 
-config.DiscordWebhook = false             -- Set to your Discord Webhook URL ***REQUIRES ccDiscordWrapper!***
+config.DiscordWebhook = true             -- Set to your Discord Webhook URL ***REQUIRES ccDiscordWrapper!***
 
 config.emoji = {
     chatMessage = true, -- enable emojis for text (ooc)

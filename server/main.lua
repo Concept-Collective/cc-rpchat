@@ -56,7 +56,9 @@ RegisterCommand('ooc', function(source, args, rawCommand)
         TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
         return
     end
-    if config.esx then
+    if config.discord then
+        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(GetPlayerGuid(source)).."] "..GetPlayerName(source)
+    elseif config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
     elseif config.qbcore then
@@ -89,7 +91,9 @@ AddEventHandler('chatMessage', function(source, name, message)
         TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
         return
     end
-    if config.esx then
+    if config.discord then
+        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(GetPlayerGuid(source)).."] "..GetPlayerName(source)
+    elseif config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
     elseif config.qbcore then
@@ -99,6 +103,9 @@ AddEventHandler('chatMessage', function(source, name, message)
         playerName = GetPlayerName(source)
     end
         TriggerClientEvent('cc-rpchat:addMessage', -1, '#3498db', 'fa-solid fa-globe', 'OOC | '..playerName, message) 
+        if config.DiscordWebhook then
+            sendToDiscord(16753920, playerName.." sent the following message", "**Message**: \n"..message.."\n\n**Identifiers**: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n<@"..GetPlayerIdentifier(source, 2):sub(9)..">\n"..GetPlayerIdentifier(source, 3), 'add a custom footer')
+        end
     end
 end)
 
@@ -118,7 +125,9 @@ RegisterCommand('me', function(source, args, rawCommand)
         TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
         return
     end
-    if config.esx then
+    if config.discord then
+        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(GetPlayerGuid(source)).."] "..GetPlayerName(source)
+    elseif config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
     elseif config.qbcore then
@@ -150,7 +159,9 @@ RegisterCommand('do', function(source, args, rawCommand)
         TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
         return
     end
-    if config.esx then
+    if config.discord then
+        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(GetPlayerGuid(source)).."] "..GetPlayerName(source)
+    elseif config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
     elseif config.qbcore then
@@ -181,7 +192,9 @@ RegisterCommand('news', function(source, args, rawCommand)
         TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
         return
     end
-    if config.esx then
+    if config.discord then
+        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(GetPlayerGuid(source)).."] "..GetPlayerName(source)
+    elseif config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
     elseif config.qbcore then
@@ -212,7 +225,9 @@ RegisterCommand('ad', function(source, args, rawCommand)
         TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
         return
     end
-    if config.esx then
+    if config.discord then
+        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(GetPlayerGuid(source)).."] "..GetPlayerName(source)
+    elseif config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
     elseif config.qbcore then
@@ -243,7 +258,9 @@ RegisterCommand('twt', function(source, args, rawCommand)
         TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
         return
     end
-    if config.esx then
+    if config.discord then
+        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(GetPlayerGuid(source)).."] "..GetPlayerName(source)
+    elseif config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
     elseif config.qbcore then
@@ -274,7 +291,9 @@ RegisterCommand('anon', function(source, args, rawCommand)
         TriggerClientEvent('cc-rpchat:addMessage', source, '#e67e22', 'fa-solid fa-triangle-exclamation', "Please Don't Spam", '', false)
         return
     end
-    if config.esx then
+    if config.discord then
+        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(GetPlayerGuid(source)).."] "..GetPlayerName(source)
+    elseif config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
     elseif config.qbcore then
