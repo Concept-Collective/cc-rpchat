@@ -66,7 +66,7 @@ RegisterCommand('ooc', function(source, args, rawCommand)
         playerName = GetPlayerName(source)
     end
     if config.DiscordWebhook then
-        sendToDiscord(16753920, playerName.." has executed /"..rawCommand:sub(1, 3), '**Command arguments**: '..msg, "Identifiers: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n"..GetPlayerIdentifier(source, 2).."\n"..GetPlayerIdentifier(source, 3))
+        sendToDiscord(16753920, playerName.." has executed /"..rawCommand:sub(1, 3), '**Command arguments**: '..msg..'\n\n'.."**Identifiers**: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n<@"..GetPlayerIdentifier(source, 2):sub(9)..">\n"..GetPlayerIdentifier(source, 3), 'add a custom footer')
     end
     TriggerClientEvent('cc-rpchat:addMessage', -1, '#3498db', 'fa-solid fa-globe', 'OOC | '..playerName, msg)
 end, false)
@@ -128,7 +128,7 @@ RegisterCommand('me', function(source, args, rawCommand)
         playerName = GetPlayerName(source)
     end
     if config.DiscordWebhook then
-        sendToDiscord(16753920, playerName.." has executed /"..rawCommand:sub(1, 2), '**Command arguments**: '..msg, "Identifiers: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n"..GetPlayerIdentifier(source, 2).."\n"..GetPlayerIdentifier(source, 3))
+        sendToDiscord(16753920, playerName.." has executed /"..rawCommand:sub(1, 2), '**Command arguments**: '..msg..'\n\n'.."**Identifiers**: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n<@"..GetPlayerIdentifier(source, 2):sub(9)..">\n"..GetPlayerIdentifier(source, 3), 'add a custom footer')
     end
     TriggerClientEvent('cc-rpchat:addProximityMessage', -1, '#f39c12', 'fa-solid fa-person', 'Me | '..playerName, msg, source, GetEntityCoords(GetPlayerPed(source)))
     --TriggerClientEvent('cc-rpchat:addMessage', -1, '#f39c12', 'fa-solid fa-person', 'Me | '..playerName, msg)
@@ -160,7 +160,7 @@ RegisterCommand('do', function(source, args, rawCommand)
         playerName = GetPlayerName(source)
     end
     if config.DiscordWebhook then
-        sendToDiscord(16753920, playerName.." has executed /"..rawCommand:sub(1, 2), '**Command arguments**: '..msg, "Identifiers: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n"..GetPlayerIdentifier(source, 2).."\n"..GetPlayerIdentifier(source, 3))
+        sendToDiscord(16753920, playerName.." has executed /"..rawCommand:sub(1, 2), '**Command arguments**: '..msg..'\n\n'.."**Identifiers**: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n<@"..GetPlayerIdentifier(source, 2):sub(9)..">\n"..GetPlayerIdentifier(source, 3), 'add a custom footer')
     end
     TriggerClientEvent('cc-rpchat:addProximityMessage', -1, '#2ecc71', 'fa-solid fa-person-digging', 'Do | '..playerName, msg, source, GetEntityCoords(GetPlayerPed(source)))
 end, false)
@@ -191,7 +191,7 @@ RegisterCommand('news', function(source, args, rawCommand)
         playerName = GetPlayerName(source)
     end
     if config.DiscordWebhook then
-        sendToDiscord(16753920, playerName.." has executed /"..rawCommand:sub(1, 4), '**Command arguments**: '..msg, "Identifiers: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n"..GetPlayerIdentifier(source, 2).."\n"..GetPlayerIdentifier(source, 3))
+        sendToDiscord(16753920, playerName.." has executed /"..rawCommand:sub(1, 4), '**Command arguments**: '..msg..'\n\n'.."**Identifiers**: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n<@"..GetPlayerIdentifier(source, 2):sub(9)..">\n"..GetPlayerIdentifier(source, 3), 'add a custom footer')
     end
     TriggerClientEvent('cc-rpchat:addMessage', -1, '#c0392b', 'fa-solid fa-newspaper', 'News | '..playerName, msg)
 end, false)
@@ -222,7 +222,7 @@ RegisterCommand('ad', function(source, args, rawCommand)
         playerName = GetPlayerName(source)
     end
     if config.DiscordWebhook then
-        sendToDiscord(16753920, playerName.." has executed /"..rawCommand:sub(1, 2), '**Command arguments**: '..msg, "Identifiers: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n"..GetPlayerIdentifier(source, 2).."\n"..GetPlayerIdentifier(source, 3))
+        sendToDiscord(16753920, playerName.." has executed /"..rawCommand:sub(1, 2), '**Command arguments**: '..msg..'\n\n'.."**Identifiers**: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n<@"..GetPlayerIdentifier(source, 2):sub(9)..">\n"..GetPlayerIdentifier(source, 3), 'add a custom footer')
     end
     TriggerClientEvent('cc-rpchat:addMessage', -1, '#f1c40f', 'fas fa-ad', 'Ad | '..playerName, msg)
 end, false)
@@ -253,7 +253,7 @@ RegisterCommand('twt', function(source, args, rawCommand)
         playerName = GetPlayerName(source)
     end
     if config.DiscordWebhook then
-        sendToDiscord(16753920, playerName.." has executed /"..rawCommand:sub(1, 3), '**Command arguments**: '..msg, "Identifiers: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n"..GetPlayerIdentifier(source, 2).."\n"..GetPlayerIdentifier(source, 3))
+        sendToDiscord(16753920, playerName.." has executed /"..rawCommand:sub(1, 3), '**Command arguments**: '..msg..'\n\n'.."**Identifiers**: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n<@"..GetPlayerIdentifier(source, 2):sub(9)..">\n"..GetPlayerIdentifier(source, 3), 'add a custom footer')
     end
     TriggerClientEvent('cc-rpchat:addMessage', -1, '#2980b9', 'fa-brands fa-twitter', '@'..playerName, msg)
 end, false)
@@ -284,7 +284,7 @@ RegisterCommand('anon', function(source, args, rawCommand)
         playerName = GetPlayerName(source)
     end
     if config.DiscordWebhook then
-        sendToDiscord(16753920, playerName.." has executed /"..rawCommand:sub(1, 4), '**Command arguments**: '..msg, "Identifiers: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n"..GetPlayerIdentifier(source, 2).."\n"..GetPlayerIdentifier(source, 3))
+        sendToDiscord(16753920, playerName.." has executed /"..rawCommand:sub(1, 4), '**Command arguments**: '..msg..'\n\n'.."**Identifiers**: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n<@"..GetPlayerIdentifier(source, 2):sub(9)..">\n"..GetPlayerIdentifier(source, 3), 'add a custom footer')
     end
     TriggerClientEvent('cc-rpchat:addMessage', -1, '#2c3e50', 'fa-solid fa-mask', 'Anonymous | '.. source, msg)
 end, false)
@@ -295,26 +295,22 @@ if config.connectionMessages then
         local playerName
         playerName = GetPlayerName(source)
         TriggerClientEvent('cc-rpchat:addMessage', -1, '#2ecc71', 'fa-solid fa-plus', playerName..' joined.', '', false)
+        if config.DiscordWebhook then
+            sendToDiscord(3329330, playerName.." has joined!", "**Identifiers**: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n<@"..GetPlayerIdentifier(source, 2):sub(9)..">\n"..GetPlayerIdentifier(source, 3), 'add a custom footer')
+        end
     end)
 
     AddEventHandler('playerDropped', function(reason)
         local playerName
         playerName = GetPlayerName(source)
         TriggerClientEvent('cc-rpchat:addMessage', -1, '#e74c3c', 'fa-solid fa-minus', playerName..' left (' .. reason .. ')', '', false)
+        if config.DiscordWebhook then
+            sendToDiscord(13644844, playerName.." has disconnected!", "**Identifiers**: \n"..GetPlayerIdentifier(source, 0).."\n"..GetPlayerIdentifier(source, 1).."\n<@"..GetPlayerIdentifier(source, 2):sub(9)..">\n"..GetPlayerIdentifier(source, 3), 'add a custom footer')
+        end
     end)
 end
 
--- Discord webhook
+-- Discord webhook *** REQUIRED ccDiscordWrapper ***
 function sendToDiscord(color, name, message, footer)
-    local embed = {
-        {
-            ['color']       = color,
-            ['title']       = '**'..name..'**',
-            ['description'] = message,
-            ['footer']      = {
-                ['text']    = footer,
-            },
-        }
-    }
-    PerformHttpRequest(config.DiscordWebhook, function(err, text, headers) end, 'POST', json.encode({username = 'New Command Executed!', embeds = embed}), { ['Content-Type'] = 'application/json' })
+    exports["ccDiscordWrapper"]:webhookSendNewMessage(color, name, message, footer)
 end
