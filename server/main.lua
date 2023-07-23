@@ -57,7 +57,7 @@ RegisterCommand('ooc', function(source, args, rawCommand)
         return
     end
     if config.discord then
-        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(GetPlayerGuid(source)).."] "..GetPlayerName(source)
+        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(source).."] "..GetPlayerName(source)
     elseif config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
@@ -92,7 +92,7 @@ AddEventHandler('chatMessage', function(source, name, message)
         return
     end
     if config.discord then
-        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(GetPlayerGuid(source)).."] "..GetPlayerName(source)
+        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(source).."] "..GetPlayerName(source)
     elseif config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
@@ -126,7 +126,7 @@ RegisterCommand('me', function(source, args, rawCommand)
         return
     end
     if config.discord then
-        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(GetPlayerGuid(source)).."] "..GetPlayerName(source)
+        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(source).."] "..GetPlayerName(source)
     elseif config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
@@ -160,7 +160,7 @@ RegisterCommand('do', function(source, args, rawCommand)
         return
     end
     if config.discord then
-        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(GetPlayerGuid(source)).."] "..GetPlayerName(source)
+        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(source).."] "..GetPlayerName(source)
     elseif config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
@@ -193,7 +193,7 @@ RegisterCommand('news', function(source, args, rawCommand)
         return
     end
     if config.discord then
-        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(GetPlayerGuid(source)).."] "..GetPlayerName(source)
+        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(source).."] "..GetPlayerName(source)
     elseif config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
@@ -226,7 +226,7 @@ RegisterCommand('ad', function(source, args, rawCommand)
         return
     end
     if config.discord then
-        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(GetPlayerGuid(source)).."] "..GetPlayerName(source)
+        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(source).."] "..GetPlayerName(source)
     elseif config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
@@ -259,7 +259,7 @@ RegisterCommand('twt', function(source, args, rawCommand)
         return
     end
     if config.discord then
-        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(GetPlayerGuid(source)).."] "..GetPlayerName(source)
+        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(source).."] "..GetPlayerName(source)
     elseif config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
@@ -292,7 +292,7 @@ RegisterCommand('anon', function(source, args, rawCommand)
         return
     end
     if config.discord then
-        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(GetPlayerGuid(source)).."] "..GetPlayerName(source)
+        playerName = "["..exports.ccDiscordWrapper:getPlayerDiscordHighestRole(source).."] "..GetPlayerName(source)
     elseif config.esx then
         local xPlayer = ESX.GetPlayerFromId(source)
         playerName = xPlayer.getName()
