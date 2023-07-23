@@ -34,7 +34,8 @@ CC RP Chat is **still in development**, and it is not recommended for use in pro
 
 ### ✅ Features
 
-- ESX support
+- ESX/QBCore support
+- Discord support
 - Proximity Chat
 - Join/Leave messages
 - Discord Integration (webhooks)
